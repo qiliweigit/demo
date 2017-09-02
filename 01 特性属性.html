@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 定义对象
+var obj = {
+	color: 'red',
+	num: 100
+}
+// 定义属性特性
+Object.defineProperty(obj, 'color', {
+	// 值是green
+	value: 'green',
+	// 外部不能修改
+	writable: false,
+	// 是否可以配置
+	enumerable: false,
+	// 是否可以再次配置
+	// configurable: false
+	configurable: true
+})
+// 希望可以修改
+// Object.defineProperty(obj, 'color', {
+// 	writable: true
+// })
+// obj.color = 'blue'
+// console.log(obj)
+
+// 希望可以遍历color
+Object.defineProperty(obj, 'color', {
+	enumerable: true
+})
+
+// 遍历属性
+for (var i in obj) {
+	console.log(i, obj[i])
+}
+</script>
+</body>
+</html>
